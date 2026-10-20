@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Support · Latent</title>
+<meta name="description" content="Get help with Latent: how to report a problem, what to include, and where to check first.">
+<meta name="color-scheme" content="dark light">
+<link rel="icon" href="./assets/favicon-64.png" sizes="64x64">
+<link rel="apple-touch-icon" href="./assets/apple-touch-icon.png">
+<link rel="stylesheet" href="./latent.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="shell site-header__inner">
+    <a class="wordmark" href="./index.html" aria-label="Latent home">
+      <span class="wordmark__text">LATENT</span>
+      <span class="wordmark__rule"></span>
+    </a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="./features.html">Features</a>
+      <a href="./faq.html">FAQ</a>
+      <a href="./support.html" aria-current="page">Support</a>
+      <a href="./privacy.html">Privacy</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <div class="shell">
+
+    <p class="meta meta--accent">SUPPORT</p>
+    <h1>Something not working?</h1>
+    <p class="lede">Latent is made by one developer, so mail gets read by the person who can actually fix the thing. A reply usually takes a couple of days.</p>
+
+    <div class="actions">
+      <a class="button-accent" href="mailto:tan.sharma+latentsupport@hotmail.com?subject=Latent%20Support">Email support</a>
+      <a class="button-outline" href="./faq.html">Check the FAQ first</a>
+    </div>
+
+    <h2>What to include</h2>
+    <p>A bug is much quicker to fix with a little context. Where you can, mention:</p>
+    <ul>
+      <li>Your Mac and macOS version (a MacBook Pro M3 on macOS 26.1, for example).</li>
+      <li>The Latent version, shown in About Latent.</li>
+      <li>Which model the task was using: Apple Intelligence, Ollama, LM Studio or Claude, and the model name if it's a local one.</li>
+      <li>Whether the photos are on an internal disk or an external drive.</li>
+      <li>What you expected to happen, and what happened instead.</li>
+      <li>A screenshot, if it's something you can see. Please don't send your photos or your <code>_catalog/</code> folder unless asked.</li>
+    </ul>
+
+    <h2>Things worth trying first</h2>
+
+    <div class="card">
+      <h3>Latent says no model is available</h3>
+      <p>Check the model the task is set to in Settings. For Apple Intelligence, make sure it's turned on in System Settings and has finished downloading. For Ollama or LM Studio, make sure the app is running and the model is loaded. Latent names the specific reason in its message, so start there.</p>
+    </div>
+
+    <div class="card">
+      <h3>A drive's photos have disappeared from the Library</h3>
+      <p>The drive is probably disconnected or was ejected. Reconnect it and the library comes back as it was. The catalog lives on the drive itself, so nothing was lost.</p>
+    </div>
+
+    <div class="card">
+      <h3>A scan stopped part way</h3>
+      <p>Start it again. Latent picks up where it left off: photos already cataloged are recognised by their fingerprint and skipped, and any captions that failed are retried.</p>
+    </div>
+
+    <div class="card">
+      <h3>Search doesn't find a photo I know is there</h3>
+      <p>Search covers captions, tags, filenames, folder names and Apple Vision's labels. A photo that hasn't been captioned or analysed yet can only be found by name. Run a caption pass, or Analyze on This Mac, from the Scan pane.</p>
+    </div>
+
+    <div class="card">
+      <h3>Similar shots or search don't find a photo's twins</h3>
+      <p>Both rely on Apple Vision's analysis. Photos cataloged before it existed need Analyze on This Mac, in the Scan pane, before they can be matched.</p>
+    </div>
+
+    <h2>Feature requests</h2>
+    <p>Genuinely welcome, and the same address works. Telling me what you were trying to do is more useful than proposing the fix: the underlying problem often has a better solution than the one that first comes to mind.</p>
+
+    <h2>Privacy questions</h2>
+    <p>The <a href="./privacy.html">privacy policy</a> covers what is stored, where it lives, and exactly what is sent when you choose a cloud model. Anything it doesn't answer, please ask.</p>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="shell">
+    <p>Latent: a photo catalog and critique app for the Mac, local first.</p>
+    <p>© 2026 Tanay Sharma. <a href="./index.html">Home</a> · <a href="./faq.html">FAQ</a> · <a href="./privacy.html">Privacy</a></p>
+  </div>
+</footer>
+
+</body>
+</html>

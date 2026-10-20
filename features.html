@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Features · Latent</title>
+<meta name="description" content="What Latent does today, and what's being considered next.">
+<meta name="color-scheme" content="dark light">
+<link rel="icon" href="./assets/favicon-64.png" sizes="64x64">
+<link rel="apple-touch-icon" href="./assets/apple-touch-icon.png">
+<link rel="stylesheet" href="./latent.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="shell site-header__inner">
+    <a class="wordmark" href="./index.html" aria-label="Latent home">
+      <span class="wordmark__text">LATENT</span>
+      <span class="wordmark__rule"></span>
+    </a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="./features.html" aria-current="page">Features</a>
+      <a href="./faq.html">FAQ</a>
+      <a href="./support.html">Support</a>
+      <a href="./privacy.html">Privacy</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <div class="shell">
+
+    <p class="meta meta--accent">WHAT'S IN LATENT</p>
+    <h1>Features</h1>
+    <p class="lede">What the app does today, and what's being considered next. Nothing below the first section is a promise: plans change, and the roadmap carries no dates on purpose.</p>
+
+    <h2 id="built">Built</h2>
+    <p class="meta">IN THE CURRENT BUILD</p>
+
+    <h3>Libraries</h3>
+    <ul>
+      <li>A library is any folder you choose as a Root, on an internal disk or an external drive. Keep as many as you like and switch between them from the sidebar.</li>
+      <li>Each library's catalog lives in <code>_catalog/</code> inside its Root: plain, append-only JSON Lines with paths relative to the Root. Corrections are added as new records, never edits, so the whole library moves with the drive and outlives the app.</li>
+      <li>Sandboxed: Latent only reaches the folders you grant it.</li>
+    </ul>
+
+    <h3>Scan and catalog</h3>
+    <ul>
+      <li>Walks every subfolder and finds JPEG, PNG, HEIC, HEIF and RAW files (RAF, DNG, ARW, CR2, CR3, NEF).</li>
+      <li>Each file is fingerprinted, so a rescan knows what's new, what moved and what changed, and only works on those.</li>
+      <li>Three ways to run: Caption &amp; Catalog, Catalog Only, or Caption Only for photos already cataloged. Pause, resume or cancel at any point.</li>
+      <li>Camera, lens, ISO, focal length, film simulation and capture time are read from EXIF. Location is not read at all. Read EXIF fills in photos cataloged before this existed.</li>
+      <li>Update Catalog notices files you renamed, moved or deleted outside Latent and records the change.</li>
+      <li>Failed captions are set aside with the reason, and Retry Failed picks them up later.</li>
+    </ul>
+
+    <h3>On this Mac: Apple Vision</h3>
+    <ul>
+      <li>Scene labels, an aesthetics score, and a flag for utility images (screenshots, receipts, documents), computed on-device during a scan.</li>
+      <li>Optional text recognition, so a sign or a menu in a photo becomes searchable. Off by default.</li>
+      <li>An image fingerprint for every photo, which is what Similar shots compares.</li>
+      <li>Analyze on This Mac fills in photos cataloged before Vision was added.</li>
+      <li>Vision's labels and text are handed to the caption and critique models as hints, marked as possibly wrong.</li>
+    </ul>
+
+    <h3>Models</h3>
+    <ul>
+      <li>Pick a model per task (captions, critique and chat): Apple Intelligence on this Mac, a local model through Ollama or LM Studio, or Claude in the cloud with your own API key, kept in the Keychain.</li>
+      <li>An editable fallback order per task, limited to on-device and local models. If your pick isn't available, Latent says which model it used instead and why. It never falls back to the cloud.</li>
+      <li>Installed Ollama models are found automatically, and a short list of recommended vision models can be downloaded from Settings with progress shown.</li>
+      <li>Built for local inference: generous timeouts, a cap on every reply so a model can't run on indefinitely, clear messages when a server isn't running or a model isn't installed, and retries that match how local models fail.</li>
+      <li>Anything that would send data to the cloud asks first, every time.</li>
+    </ul>
+
+    <h3>Captions</h3>
+    <ul>
+      <li>A caption and tags for every photo, one photo at a time with backoff, so a long run survives a slow model.</li>
+      <li>Re-caption any photo with a model you choose, and keep every earlier caption with the model that wrote it. Restore one with a click.</li>
+    </ul>
+
+    <h3>The library</h3>
+    <ul>
+      <li>A grid grouped by folder, sorted by name or date added, with search as you type across captions, tags, people, filenames, folders and Vision labels.</li>
+      <li>An inspector with the caption and its history, editable tags, EXIF, what Vision saw, exact duplicates, and the latest critique with its posting priority.</li>
+      <li>Similar shots: burst frames, near-duplicates and edits of the same photo, found by comparing Vision fingerprints on your Mac. Look in the photo's folder, the whole library, or every library you've cataloged, even ones on a disconnected drive. Each match shows how far apart the shots were taken.</li>
+      <li>Space bar opens a Quick Look preview, arrow keys move through the grid, and <code>⌘F</code> jumps to search.</li>
+    </ul>
+
+    <h3>Critique</h3>
+    <ul>
+      <li>Measured before it's judged: contrast, sharpness and colourfulness are computed from the pixels, and a soft or flat photo is flagged before any model sees it. Latent asks whether softness was intentional, and caps the photo's priority if it was.</li>
+      <li>Per photo: genre and rendering, composition, light and tone, the decisive moment, strengths, one improvement, a comparative note and a posting priority (Top Candidate, Supporting or Archive).</li>
+      <li>Treat a folder as a cohesive set for an overview, grid harmony, a posting sequence and a strategy summary, or as a mixed selection.</li>
+      <li>Optional alt text and five hashtags per photo, and an optional direction, such as a photographer's style to critique against.</li>
+      <li>Screenshots and documents get a lighter review and are archived without hashtags. If Apple Vision mistakes a photograph for one, mark it as a photograph in the Library or on its critique and it gets a full review.</li>
+      <li>On-device and local models critique in two steps: they look at the photo first, then judge it from what they saw, with a shorter brief for small models. Claude gets the full critique in one step. The brief size can be set in Settings.</li>
+      <li>Only new photos are critiqued by default. Latent tells you which photos a different model critiqued and lets you include them. A set is still judged as a whole using the earlier critiques, and when nothing is new it can update just the set.</li>
+      <li>Re-critique a single photo from the Library or from its result card. If a model's reply can't be read, Latent says the critique failed and tries that photo again on the next run, instead of filing it as Archive.</li>
+      <li>A readable <code>review.md</code> saved beside the photos, and a durable record in the catalog so the Library shows each photo's priority and critiques from different models can be compared.</li>
+    </ul>
+
+    <h3>Chat</h3>
+    <ul>
+      <li>Ask questions of every library you've cataloged, or just the ones you choose. New libraries are included automatically.</li>
+      <li>Answers stream in, grounded in your catalog records, with the photos they drew on shown beneath and the ones they cite highlighted.</li>
+      <li>Libraries on a disconnected drive can still be asked about, from Latent's local index.</li>
+    </ul>
+
+    <h3>Rename</h3>
+    <ul>
+      <li>Proposals in the <code>folder_001</code> style, ordered by capture time, shown before and after with a checkbox for each file.</li>
+      <li>Every rename is written to a journal before it happens, so an interrupted batch recovers cleanly, and the last batch can be undone.</li>
+    </ul>
+
+    <h3>Exports</h3>
+    <p>Plain-file copies of a library's catalog for other apps, written to <code>_catalog/</code> when you ask. Latent never reads them itself: its Library and Chat search the catalog directly. The Exports pane explains each file and tells you when the catalog has changed since you last generated them.</p>
+    <ul>
+      <li><strong>Read or share:</strong> <code>catalog.md</code>, a table of every photo with its caption, tags, what Apple Vision saw and its critique priority; and <code>catalog.json</code>, the same as structured data with EXIF, Vision signals and the latest critique, for scripts and spreadsheets.</li>
+      <li><strong>Use in another chat app:</strong> <code>chat_context.md</code>, a compact list to paste or attach in a chat app such as Ollama's or LM Studio's; and <code>chat_context.jsonl</code>, the same one record per line for tools that load documents for retrieval.</li>
+      <li><strong>Advanced, fine-tuning:</strong> <code>training_data.jsonl</code>, caption examples in ChatML format to teach a local model to caption like your catalog.</li>
+      <li>Exports never contain location, because Latent doesn't read GPS from your photos.</li>
+    </ul>
+
+    <h3>Working in the background</h3>
+    <ul>
+      <li>Scans, critiques and chat replies keep running while you move around the app. A status bar shows progress from any pane.</li>
+      <li>A notification when a job finishes or needs an answer while you're looking elsewhere, and a confirmation before quitting or switching library would stop one.</li>
+    </ul>
+
+    <h3>The Mac around it</h3>
+    <ul>
+      <li>Dark, light or follow the system, in the same bottle green and brass throughout, with text contrast that meets accessibility guidelines.</li>
+      <li>Keyboard shortcuts for every pane (<code>⌘1</code>–<code>⌘6</code>), Start Scan (<code>⌘R</code>) and Stop (<code>⌘.</code>), a proper Settings window (<code>⌘,</code>), and VoiceOver labels throughout.</li>
+    </ul>
+
+    <h2 id="roadmap">On the roadmap</h2>
+    <p class="meta">CONSIDERED, NOT COMMITTED · NO DATES</p>
+
+    <div class="card">
+      <h3>Smarter Chat</h3>
+      <p>Find photos by meaning as well as by words, fit more of your archive into each answer for smaller on-device models, and open a cited photo straight in the Library.</p>
+    </div>
+
+    <div class="card">
+      <h3>A chat model that knows your archive</h3>
+      <p>Fine-tune a local model on your own catalog, entirely on your Mac, and use it for Chat. Answers would still be grounded in the catalog records.</p>
+    </div>
+
+    <div class="card">
+      <h3>Mix models in a critique</h3>
+      <p>Let one model look at the photo and another judge it and plan the set, and offer to re-run a thin critique of a single photo on a stronger model, with your confirmation.</p>
+    </div>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="shell">
+    <p>Latent: a photo catalog and critique app for the Mac, local first.</p>
+    <p>© 2026 Tanay Sharma. <a href="./index.html">Home</a> · <a href="./faq.html">FAQ</a> · <a href="./privacy.html">Privacy</a> · <a href="./support.html">Support</a></p>
+  </div>
+</footer>
+
+</body>
+</html>

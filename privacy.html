@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Policy · Latent</title>
+<meta name="description" content="Latent has no account, no server and no analytics. Your catalog lives on your own drive, and nothing leaves your Mac unless you choose a cloud model and confirm it.">
+<meta name="color-scheme" content="dark light">
+<link rel="icon" href="./assets/favicon-64.png" sizes="64x64">
+<link rel="apple-touch-icon" href="./assets/apple-touch-icon.png">
+<link rel="stylesheet" href="./latent.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="shell site-header__inner">
+    <a class="wordmark" href="./index.html" aria-label="Latent home">
+      <span class="wordmark__text">LATENT</span>
+      <span class="wordmark__rule"></span>
+    </a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="./features.html">Features</a>
+      <a href="./faq.html">FAQ</a>
+      <a href="./support.html">Support</a>
+      <a href="./privacy.html" aria-current="page">Privacy</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <div class="shell">
+
+    <p class="meta meta--accent">LAST UPDATED · 30 SEP 2026</p>
+    <h1>Privacy Policy</h1>
+    <p class="lede">Latent has no account system, no server of its own, and no analytics. Your photos and your catalog stay on your Mac and your own drives. Something leaves the device only when you have chosen a cloud model for a task and confirmed the run.</p>
+
+    <div class="callout">
+      <p><strong>The short version.</strong> Latent catalogs your photos into files on your own drive. Apple Intelligence, Apple Vision and local models run on your Mac. If you choose Claude for a task, Latent asks before each run and then sends only a downscaled, metadata-stripped copy of each photo, or for chat and set critiques only text from your catalog, directly to Anthropic using your own API key. The developer never receives any of it.</p>
+    </div>
+
+    <h2>Who this covers</h2>
+    <p>This policy covers the Latent app for Mac. It is written and maintained by the app's independent developer.</p>
+
+    <h2>What Latent stores, and where</h2>
+
+    <dl class="rows">
+      <div class="row">
+        <dt>Your photos</dt>
+        <dd>Stay where you keep them. Latent reads them in place. Only Rename changes them, and only after you confirm the proposed names.</dd>
+      </div>
+      <div class="row">
+        <dt>The catalog</dt>
+        <dd>A <code>_catalog/</code> folder inside the Root you choose, on the same drive as your photos: file fingerprints, captions, tags, a subset of EXIF (camera, lens, ISO, focal length, film simulation, capture time), Apple Vision results and critiques. Paths are relative to the Root. No usernames, machine identifiers or location data are written to it.</dd>
+      </div>
+      <div class="row">
+        <dt>Critique reviews and exports</dt>
+        <dd>A <code>review.md</code> beside the photos you critique, and any exports you generate, in <code>_catalog/</code>. Exports copy captions, tags, EXIF, Apple Vision results (including recognised text, if you turned it on) and critiques into plain files. They're written only when you ask, contain no location, and you decide whether to share them.</dd>
+      </div>
+      <div class="row">
+        <dt>Search index and thumbnails</dt>
+        <dd>A search database and thumbnail cache inside Latent's sandboxed container on your Mac, one per library. Both are rebuilt from the catalog whenever needed. They let Chat and Similar shots search a library whose drive isn't connected.</dd>
+      </div>
+      <div class="row">
+        <dt>Settings and folder access</dt>
+        <dd>Your preferences and the folder permissions you grant are stored locally on your Mac.</dd>
+      </div>
+      <div class="row">
+        <dt>A Claude API key</dt>
+        <dd>Only if you add one. Stored in your Mac's Keychain, never in a preferences file, a log or an error message.</dd>
+      </div>
+    </dl>
+
+    <h2>When Latent connects to anything</h2>
+    <p>Latent makes network requests only to the model services you configure for a task, and to your local Ollama when you download a model.</p>
+
+    <h3>Apple Intelligence and Apple Vision</h3>
+    <p>Run on your Mac through Apple's on-device frameworks. Latent makes no network request for them.</p>
+
+    <h3>Local models (Ollama, LM Studio)</h3>
+    <p>Latent talks to these over your Mac's loopback address (<code>localhost</code>). The request doesn't leave the machine unless you have deliberately pointed Latent at a server elsewhere.</p>
+
+    <h3>Claude (optional, off unless you choose it)</h3>
+    <p>If you add a Claude API key and choose Claude for a task, Latent shows a "data leaves your device" confirmation before the run. After you confirm, it sends requests directly from your Mac to Anthropic's API:</p>
+    <ul>
+      <li><strong>Captions and critique</strong>: a copy of each photo downscaled to at most 1024 pixels on the long edge with all metadata stripped, a prompt, and hints from the catalog: the folder name, Apple Vision's labels and any text it recognised, and for critique the camera settings and Latent's own sharpness and contrast measurements.</li>
+      <li><strong>Set critique</strong>: when a folder is critiqued as a set, the per-photo critiques as text, including earlier ones Latent reuses. "Update set only" sends only this text, with no images.</li>
+      <li><strong>Chat</strong>: your question and the matching catalog records as text (captions, tags, filenames). No images.</li>
+    </ul>
+    <p>Latent never switches to Claude on its own. If an on-device or local model is unavailable, it tells you rather than escalating to the cloud. What Anthropic does with API requests is governed by <a href="https://www.anthropic.com/legal/privacy">Anthropic's privacy policy</a> and the terms of your own API account.</p>
+
+    <div class="callout">
+      <p><strong>Every model gets the same reduced copy.</strong> The 1024-pixel, metadata-stripped rule applies to on-device and local models too, not just the cloud. Full-resolution originals are only ever read on your Mac, for EXIF and for the sharpness and contrast measurements Latent computes itself.</p>
+    </div>
+
+    <h3>Downloading local models</h3>
+    <p>If you download a recommended model from Settings, Latent asks your local Ollama to fetch it. Ollama downloads it from its own model library; Latent sends nothing about you or your photos.</p>
+
+    <h3>Notifications</h3>
+    <p>When a long job finishes while you're elsewhere, Latent posts a local macOS notification. It's generated on your Mac and involves no network request.</p>
+
+    <h2>What Latent never does</h2>
+    <ul>
+      <li>No analytics, telemetry, crash reporting or usage tracking of any kind.</li>
+      <li>No advertising, and no advertising or attribution SDKs.</li>
+      <li>No Latent account, so no email address, password or profile is collected.</li>
+      <li>No selling, renting or sharing of personal data: none is received to share.</li>
+      <li>No location data: Latent doesn't read GPS coordinates from your photos.</li>
+      <li>No full-resolution photo is ever sent to any model, on-device or otherwise.</li>
+    </ul>
+
+    <h2>Children</h2>
+    <p>Latent is not directed at children and knowingly collects no personal information from anyone, of any age.</p>
+
+    <h2>Your control over your data</h2>
+    <p>Because the catalog sits in plain files on your own drive, you control it directly:</p>
+    <ul>
+      <li><strong>Read it</strong>: <code>_catalog/</code> is plain text, readable without Latent.</li>
+      <li><strong>Delete it</strong>: remove the <code>_catalog/</code> folder to delete a library's catalog. Deleting the app removes its local index, cache and settings. A stored API key can be removed in Settings.</li>
+      <li><strong>Keep it local</strong>: use only Apple Intelligence or local models, and nothing is ever sent off your Mac.</li>
+    </ul>
+    <p>There is no request to make of the developer to exercise these, because there is no copy of your data to request.</p>
+
+    <h2>Changes to this policy</h2>
+    <p>If this policy changes, the date at the top of the page changes with it. If a future version adds another cloud provider or any other feature that sends data off your Mac, this policy will be updated first to say exactly what it sends and when, and that feature will need the same explicit confirmation as the Claude option does now.</p>
+
+    <h2>Contact</h2>
+    <p>Questions about this policy can go to <a href="mailto:tan.sharma+latentsupport@hotmail.com">tan.sharma+latentsupport@hotmail.com</a>, or via the <a href="./support.html">support page</a>.</p>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="shell">
+    <p>Latent: a photo catalog and critique app for the Mac, local first.</p>
+    <p class="site-footer__print-hide">© 2026 Tanay Sharma. <a href="./index.html">Home</a> · <a href="./support.html">Support</a></p>
+  </div>
+</footer>
+
+</body>
+</html>

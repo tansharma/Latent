@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Latent · A photo catalog that stays on your Mac</title>
+<meta name="description" content="Latent catalogs, captions and critiques your photo library on your Mac, with on-device and local AI first. Your catalog lives on your own drive, in plain files.">
+<meta name="color-scheme" content="dark light">
+<link rel="icon" href="./assets/favicon-64.png" sizes="64x64">
+<link rel="apple-touch-icon" href="./assets/apple-touch-icon.png">
+<link rel="stylesheet" href="./latent.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="shell site-header__inner">
+    <a class="wordmark" href="./index.html" aria-label="Latent home">
+      <span class="wordmark__text">LATENT</span>
+      <span class="wordmark__rule"></span>
+    </a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="./features.html">Features</a>
+      <a href="./faq.html">FAQ</a>
+      <a href="./support.html">Support</a>
+      <a href="./privacy.html">Privacy</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <div class="shell">
+
+    <section class="hero">
+      <img class="hero__icon" src="./assets/app-icon-256.png" alt="" width="88" height="88">
+      <p class="meta meta--accent">MAC · APPLE SILICON</p>
+      <h1>Know what's in your archive.</h1>
+      <p class="lede">Latent catalogs, captions and critiques a photo library on your Mac. It reads the folders you already have, describes every frame with on-device or local AI, and keeps the catalog on your own drive in plain files that outlive the app.</p>
+
+      <div class="actions">
+        <a class="button-accent" href="./features.html">See what it does</a>
+        <a class="button-outline" href="./privacy.html">Where your photos go</a>
+      </div>
+      <p class="meta">IN DEVELOPMENT · NOT YET AVAILABLE</p>
+    </section>
+
+    <h2>What it does</h2>
+
+    <div class="feature-grid">
+      <div class="card">
+        <h3>A catalog on your drive</h3>
+        <p>Point Latent at a folder. It records every photo in <code>_catalog/</code> beside your images, append-only and with relative paths, so the catalog travels with the drive and nothing is ever overwritten.</p>
+      </div>
+      <div class="card">
+        <h3>Captions from the model you choose</h3>
+        <p>Apple Intelligence on this Mac, a local model through Ollama or LM Studio, or Claude in the cloud if you ask for it. Latent never switches to the cloud on its own.</p>
+      </div>
+      <div class="card">
+        <h3>Seen on this Mac first</h3>
+        <p>Apple Vision labels each photo, scores it, spots screenshots and receipts, and reads any text in it, all on-device. Search finds "sky" before a caption exists, and burst frames turn up as Similar shots.</p>
+      </div>
+      <div class="card">
+        <h3>Critique with a spine</h3>
+        <p>Measured contrast and sharpness gate the critique before any model sees the photo. You get composition, light and moment notes, a posting priority, alt text and a posting order for the set. Re-runs only critique what's new.</p>
+      </div>
+      <div class="card">
+        <h3>Ask your archive</h3>
+        <p>Chat across every library you've cataloged. Answers are grounded in your own records and cite the photos they came from.</p>
+      </div>
+      <div class="card">
+        <h3>Rename without fear</h3>
+        <p>Proposes <code>folder_001</code>-style names in the order the photos were taken, shows every change before it happens, journals it first, and undoes it cleanly.</p>
+      </div>
+    </div>
+
+    <h2>Local first, by design</h2>
+    <p>Latent has no account, no server and no analytics. Every model sees a downscaled copy of your photo with its metadata stripped. Full-resolution files never leave the disk. Anything that would leave your Mac asks you first, every time.</p>
+    <p>The <a href="./privacy.html">privacy policy</a> sets out exactly what is stored, where, and what is sent when you choose a cloud model.</p>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="shell">
+    <p>Latent: a photo catalog and critique app for the Mac, local first.</p>
+    <p>© 2026 Tanay Sharma. <a href="./privacy.html">Privacy</a> · <a href="./support.html">Support</a></p>
+  </div>
+</footer>
+
+</body>
+</html>

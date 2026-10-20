@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FAQ · Latent</title>
+<meta name="description" content="Common questions about Latent: which models it uses, what ever leaves your Mac, where the catalog lives, and what it needs to run.">
+<meta name="color-scheme" content="dark light">
+<link rel="icon" href="./assets/favicon-64.png" sizes="64x64">
+<link rel="apple-touch-icon" href="./assets/apple-touch-icon.png">
+<link rel="stylesheet" href="./latent.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="shell site-header__inner">
+    <a class="wordmark" href="./index.html" aria-label="Latent home">
+      <span class="wordmark__text">LATENT</span>
+      <span class="wordmark__rule"></span>
+    </a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="./features.html">Features</a>
+      <a href="./faq.html" aria-current="page">FAQ</a>
+      <a href="./support.html">Support</a>
+      <a href="./privacy.html">Privacy</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <div class="shell">
+
+    <p class="meta meta--accent">FREQUENTLY ASKED</p>
+    <h1>Questions</h1>
+    <p class="lede">If your question isn't here, the <a href="./support.html">support page</a> has a way to reach a human.</p>
+
+    <h2>Getting started</h2>
+
+    <details>
+      <summary>What is Latent, exactly?</summary>
+      <div class="answer">
+        <p>A Mac app that turns a folder of photos into a searchable, captioned catalog, then helps you judge and use it: critique a set before you post it, rename files consistently, and ask questions of the whole archive. It works on the folders you already have. There's nothing to import and no library to be locked into.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>What does it need to run?</summary>
+      <div class="answer">
+        <p>A Mac running macOS 26 or later, ideally with Apple Silicon. Captioning with Apple Intelligence needs Apple Silicon and Apple Intelligence turned on, and describing images with it on-device needs macOS 27. Without it, a local model through Ollama or LM Studio works just as well, and everything else in the app (scanning, Apple Vision, the Library, rename, metrics) needs no model at all.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>Do I need an account?</summary>
+      <div class="answer">
+        <p>No. There's no sign-up and no Latent server. The only credential Latent ever holds is a Claude API key, and only if you choose to add one. It's kept in your Mac's Keychain.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>Which photo formats does it read?</summary>
+      <div class="answer">
+        <p>JPEG, PNG, HEIC and HEIF, and RAW files from most cameras: RAF, DNG, ARW, CR2, CR3 and NEF.</p>
+      </div>
+    </details>
+
+    <h2>AI and your photos</h2>
+
+    <details>
+      <summary>Which AI does Latent use?</summary>
+      <div class="answer">
+        <p>The one you pick, per task. Captions, critique and chat can each use Apple Intelligence on your Mac, a local model served by Ollama or LM Studio, or Claude in the cloud with your own API key. You set a fallback order for each task, and that order only ever contains on-device and local models.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>Will it ever send my photos to the cloud without asking?</summary>
+      <div class="answer">
+        <p>No. Nothing leaves your Mac unless you've chosen a cloud model for a task and then confirmed the run when Latent asks. If your local model is unavailable, Latent tells you and stops. It does not quietly switch to the cloud.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>What does a model actually see?</summary>
+      <div class="answer">
+        <p>A copy of the photo downscaled to at most 1024 pixels on the long edge, with all its metadata stripped, plus a short prompt. That holds for every model, including the ones running on your Mac. Your original files are never uploaded or modified by captioning or critique.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>What does Apple Vision add?</summary>
+      <div class="answer">
+        <p>Apple Vision runs on-device and needs no model setup. It labels what's in each photo, scores it, recognises screenshots and documents, and can read text in the image. Those results make the Library searchable straight away and give the caption and critique models useful hints.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>Does re-running Critique redo every photo?</summary>
+      <div class="answer">
+        <p>No. By default only photos that have never been critiqued are sent to the model. If some were critiqued by a different model, Latent says so and lets you include them. When a folder is treated as a set, the overview and posting order still cover every photo, using the earlier critiques for the ones not redone. If nothing is new, Update set only refreshes just the set in one quick text-only step.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>How does Latent find similar shots?</summary>
+      <div class="answer">
+        <p>When Apple Vision analyses a photo it records a compact fingerprint of what the image looks like. Similar shots compares fingerprints on your Mac, with no model involved, and lists photos that look nearly the same: burst frames, near-duplicates, or an edit filed in another folder. You choose whether to look in the photo's folder, the whole library, or every library you've cataloged.</p>
+      </div>
+    </details>
+
+    <h2>Your catalog</h2>
+
+    <details>
+      <summary>Where is my catalog stored?</summary>
+      <div class="answer">
+        <p>In a <code>_catalog/</code> folder inside the Root you chose, on the same drive as the photos. It's plain JSON Lines. Paths are relative to the Root, and it contains no usernames or machine identifiers, so the drive can be plugged into another Mac and the library comes with it.</p>
+        <p>Latent also keeps a search index and thumbnail cache inside its own sandbox on your Mac. Both are disposable: they're rebuilt from <code>_catalog/</code> whenever needed.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>Can I have more than one library?</summary>
+      <div class="answer">
+        <p>Yes. Any folder you choose becomes a library with its own <code>_catalog/</code>, and Latent remembers them all so you can switch from the sidebar. Chat and Similar shots can search across every library, including ones on a drive that isn't connected, using Latent's local index.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>What are Exports for?</summary>
+      <div class="answer">
+        <p>They're plain-file copies of a library's catalog for other apps. <code>catalog.md</code> and <code>catalog.json</code> are for reading, sharing or scripting, and include captions, tags, what Apple Vision saw and each photo's latest critique. <code>chat_context.md</code> and <code>chat_context.jsonl</code> are for giving your archive to another chat app, such as Ollama's or LM Studio's. <code>training_data.jsonl</code>, under Advanced, is for fine-tuning a local model to caption like your catalog.</p>
+        <p>They're written to <code>_catalog/</code> when you press Generate and don't update on their own; the pane tells you when the catalog has changed since. Latent's own Library and Chat never use them. They contain no location data, because Latent doesn't read GPS.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>Can Latent damage my photos?</summary>
+      <div class="answer">
+        <p>Only rename touches your files, and only after you've reviewed every proposed change and confirmed it. Each rename is written to a journal before it happens, so an interrupted run can be recovered and any run can be undone. Captioning, Vision and critique only read your photos.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>What happens if I edit a caption or tags?</summary>
+      <div class="answer">
+        <p>The change is added to the catalog as a new record that supersedes the old one. Catalog records are never overwritten, so the history stays intact and a half-written file can't corrupt what came before.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>Can I carry on working while a scan or critique runs?</summary>
+      <div class="answer">
+        <p>Yes. Long jobs keep running while you move between panes, a status bar shows their progress, and you get a notification when one finishes while you're looking elsewhere. Latent asks before quitting or switching Root with work still running.</p>
+      </div>
+    </details>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="shell">
+    <p>Latent: a photo catalog and critique app for the Mac, local first.</p>
+    <p>© 2026 Tanay Sharma. <a href="./index.html">Home</a> · <a href="./features.html">Features</a> · <a href="./privacy.html">Privacy</a> · <a href="./support.html">Support</a></p>
+  </div>
+</footer>
+
+</body>
+</html>
